@@ -1,40 +1,29 @@
-/****************************************************************************
- ****************************************************************************
- ***
- ***   This header was automatically generated from a Linux kernel header
- ***   of the same name, to make information necessary for userspace to
- ***   call into the kernel available to libc.  It contains only constants,
- ***   structures, and macros generated from the original header, and thus,
- ***   contains no copyrightable information.
- ***
- ****************************************************************************
- ****************************************************************************/
 #ifndef _XT_MULTIPORT_H
 #define _XT_MULTIPORT_H
 
-enum xt_multiport_flags
-{
- XT_MULTIPORT_SOURCE,
- XT_MULTIPORT_DESTINATION,
- XT_MULTIPORT_EITHER
+#include <linux/types.h>
+
+enum xt_multiport_flags {
+	XT_MULTIPORT_SOURCE,
+	XT_MULTIPORT_DESTINATION,
+	XT_MULTIPORT_EITHER
 };
 
-#define XT_MULTI_PORTS 15
+#define XT_MULTI_PORTS	15
 
-struct xt_multiport
-{
- u_int8_t flags;
- u_int8_t count;
- u_int16_t ports[XT_MULTI_PORTS];
+/* Must fit inside union xt_matchinfo: 16 bytes */
+struct xt_multiport {
+	__u8 flags;				/* Type of comparison */
+	__u8 count;				/* Number of ports */
+	__u16 ports[XT_MULTI_PORTS];	/* Ports */
 };
 
-struct xt_multiport_v1
-{
- u_int8_t flags;
- u_int8_t count;
- u_int16_t ports[XT_MULTI_PORTS];
- u_int8_t pflags[XT_MULTI_PORTS];
- u_int8_t invert;
+struct xt_multiport_v1 {
+	__u8 flags;				/* Type of comparison */
+	__u8 count;				/* Number of ports */
+	__u16 ports[XT_MULTI_PORTS];	/* Ports */
+	__u8 pflags[XT_MULTI_PORTS];	/* Port flags */
+	__u8 invert;			/* Invert flag */
 };
 
-#endif
+#endif /*_XT_MULTIPORT_H*/

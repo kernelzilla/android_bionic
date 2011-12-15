@@ -1,27 +1,24 @@
-/****************************************************************************
- ****************************************************************************
- ***
- ***   This header was automatically generated from a Linux kernel header
- ***   of the same name, to make information necessary for userspace to
- ***   call into the kernel available to libc.  It contains only constants,
- ***   structures, and macros generated from the original header, and thus,
- ***   contains no copyrightable information.
- ***
- ****************************************************************************
- ****************************************************************************/
 #ifndef _XT_RATE_H
 #define _XT_RATE_H
 
+#include <linux/types.h>
+
+/* timings are in milliseconds. */
 #define XT_LIMIT_SCALE 10000
 
+struct xt_limit_priv;
+
+/* 1/10,000 sec period => max of 10,000/sec.  Min rate is then 429490
+   seconds, or one every 59 hours. */
 struct xt_rateinfo {
- u_int32_t avg;
- u_int32_t burst;
+	__u32 avg;    /* Average secs between packets * scale */
+	__u32 burst;  /* Period multiplier for upper limit. */
 
- unsigned long prev;
- u_int32_t credit;
- u_int32_t credit_cap, cost;
+	/* Used internally by the kernel */
+	unsigned long prev; /* moved to xt_limit_priv */
+	__u32 credit; /* moved to xt_limit_priv */
+	__u32 credit_cap, cost;
 
- struct xt_rateinfo *master;
+	struct xt_limit_priv *master;
 };
-#endif
+#endif /*_XT_RATE_H*/

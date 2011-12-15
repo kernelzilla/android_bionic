@@ -1,20 +1,15 @@
-/****************************************************************************
- ****************************************************************************
- ***
- ***   This header was automatically generated from a Linux kernel header
- ***   of the same name, to make information necessary for userspace to
- ***   call into the kernel available to libc.  It contains only constants,
- ***   structures, and macros generated from the original header, and thus,
- ***   contains no copyrightable information.
- ***
- ****************************************************************************
- ****************************************************************************/
 #ifndef _XT_MARK_H
 #define _XT_MARK_H
 
-struct xt_mark_info {
- unsigned long mark, mask;
- u_int8_t invert;
+#include <linux/types.h>
+
+struct xt_mark_tginfo2 {
+	__u32 mark, mask;
 };
 
-#endif
+struct xt_mark_mtinfo1 {
+	__u32 mark, mask;
+	__u8 invert;
+};
+
+#endif /*_XT_MARK_H*/

@@ -1,19 +1,8 @@
-/****************************************************************************
- ****************************************************************************
- ***
- ***   This header was automatically generated from a Linux kernel header
- ***   of the same name, to make information necessary for userspace to
- ***   call into the kernel available to libc.  It contains only constants,
- ***   structures, and macros generated from the original header, and thus,
- ***   contains no copyrightable information.
- ***
- ****************************************************************************
- ****************************************************************************/
 #ifndef _XT_HELPER_H
 #define _XT_HELPER_H
 
 struct xt_helper_info {
- int invert;
- char name[30];
+	int invert;
+	char name[30];
 };
-#endif
+#endif /* _XT_HELPER_H */

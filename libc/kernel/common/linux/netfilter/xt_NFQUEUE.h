@@ -1,19 +1,29 @@
-/****************************************************************************
- ****************************************************************************
- ***
- ***   This header was automatically generated from a Linux kernel header
- ***   of the same name, to make information necessary for userspace to
- ***   call into the kernel available to libc.  It contains only constants,
- ***   structures, and macros generated from the original header, and thus,
- ***   contains no copyrightable information.
- ***
- ****************************************************************************
- ****************************************************************************/
+/* iptables module for using NFQUEUE mechanism
+ *
+ * (C) 2005 Harald Welte <laforge@netfilter.org>
+ *
+ * This software is distributed under GNU GPL v2, 1991
+ * 
+*/
 #ifndef _XT_NFQ_TARGET_H
 #define _XT_NFQ_TARGET_H
 
+#include <linux/types.h>
+
+/* target info */
 struct xt_NFQ_info {
- u_int16_t queuenum;
+	__u16 queuenum;
 };
 
-#endif
+struct xt_NFQ_info_v1 {
+	__u16 queuenum;
+	__u16 queues_total;
+};
+
+struct xt_NFQ_info_v2 {
+	__u16 queuenum;
+	__u16 queues_total;
+	__u16 bypass;
+};
+
+#endif /* _XT_NFQ_TARGET_H */
