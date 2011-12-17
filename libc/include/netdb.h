@@ -227,11 +227,23 @@ struct netent	*getnetent(void);
 int getnetent_r(struct netent *, char *, size_t, struct netent **, int *);
 int getnetgrent(char **, char **, char **);
 struct protoent	*getprotobyname(const char *);
-int getprotobyname_r(const char *, struct protoent *, char *, size_t, struct protoent **);
 struct protoent	*getprotobynumber(int);
-int getprotobynumber_r(int, struct protoent *, char *, size_t, struct protoent **);
 struct protoent	*getprotoent(void);
-int getprotoent_r(struct protoent *, char *, size_t, struct protoent **);
+//struct protoent	*getprotobyname(const char *);
+//int getprotobyname_r(const char *, struct protoent *, char *, size_t, struct protoent **);
+//struct protoent	*getprotobynumber(int);
+//int getprotobynumber_r(int, struct protoent *, char *, size_t, struct protoent **);
+//int getprotoent_r(struct protoent *, char *, size_t, struct protoent **);
+
+
+extern struct protoent *getprotobyname(__const char *__name);
+
+/* Return entry from protocol data base which number is PROTO.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+struct protoent *getprotobynumber(int __proto);
+
 struct servent	*getservbyname(const char *, const char *);
 struct servent	*getservbyport(int, const char *);
 struct servent	*getservent(void);
