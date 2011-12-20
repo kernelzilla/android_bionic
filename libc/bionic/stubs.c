@@ -445,17 +445,6 @@ struct netent *getnetbyaddr(uint32_t net, int type)
     return NULL;
 }
 
-struct protoent *getprotobyname(const char *name)
-{
-    fprintf(stderr, "FIX ME! implement %s() %s:%d\n", __FUNCTION__, __FILE__, __LINE__);
-    return NULL;
-}
-
-struct protoent *getprotobynumber(int proto)
-{
-    fprintf(stderr, "FIX ME! implement %s() %s:%d\n", __FUNCTION__, __FILE__, __LINE__);
-    return NULL;
-}
 
 char* getusershell(void)
 {

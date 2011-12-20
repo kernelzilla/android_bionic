@@ -306,6 +306,12 @@ libc_common_src_files := \
 	netbsd/net/getaddrinfo.c \
 	netbsd/net/getnameinfo.c \
 	netbsd/net/getservbyname.c \
+	netbsd/net/getprotobyname.c \
+	netbsd/net/getprotobyname_r.c \
+	netbsd/net/getprotobynumber.c \
+	netbsd/net/getprotobynumber_r.c \
+	netbsd/net/getprotoent.c \
+	netbsd/net/getprotoent_r.c \
 	netbsd/net/getservent.c \
 	netbsd/net/base64.c \
 	netbsd/net/getservbyport.c \

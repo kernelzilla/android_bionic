@@ -40,6 +40,7 @@ __RCSID("$NetBSD: getservent_r.c,v 1.5 2005/04/18 19:39:45 kleink Exp $");
 #endif
 #endif /* LIBC_SCCS and not lint */
 
+#include <util.h>
 #include <netdb.h>
 #include <errno.h>
 #include <stdio.h>
@@ -91,9 +92,9 @@ getservent_r(struct servent *sp, struct servent_data *sd)
 	for (;;) {
 		if (sd->line)
 			free(sd->line);
-//		sd->line = fparseln(sd->fp, NULL, NULL, NULL, FPARSELN_UNESCALL);
-		fprintf(stderr, "*** FIX ME! getservent_r() is going to fail!!!\n");
-		sd->line = NULL;
+		sd->line = fparseln(sd->fp, NULL, NULL, NULL, FPARSELN_UNESCALL);
+//		fprintf(stderr, "*** FIX ME! getservent_r() is going to fail!!!\n");
+//		sd->line = NULL;
 		if (sd->line == NULL)
 			return NULL;
 		sp->s_name = p = sd->line;
